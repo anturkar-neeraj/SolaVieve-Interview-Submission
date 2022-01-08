@@ -1,0 +1,15 @@
+<div class="box">
+  <label class="ratingLabel">{{ ratingLabel }}</label>
+  <div class="rate">
+    <input type="radio" id="{{ name }} + star5" name="{{ name }}" value="5" (change)="onStartRatingChange($event)" />
+    <label for="{{ name }} + star5" title="text">5 stars</label>
+    <input type="radio" id="{{ name }} + star4" name="{{ name }}" value="4" (change)="onStartRatingChange($event)" />
+    <label for="{{ name }} + star4" title="text">4 stars</label>
+    <input type="radio" id="{{ name }} + star3" name="{{ name }}" value="3" (change)="onStartRatingChange($event)" />
+    <label for="{{ name }} + star3" title="text">3 stars</label>
+    <input type="radio" id="{{ name }} + star2" name="{{ name }}" value="2" (change)="onStartRatingChange($event)" />
+    <label for="{{ name }} + star2" title="text">2 stars</label>
+    <input type="radio" id="{{ name }} + star1" name="{{ name }}" value="1" (change)="onStartRatingChange($event)" />
+    <label for="{{ name }} + star1" title="text">1 star</label>
+  </div>
+</div>

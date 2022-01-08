@@ -1,0 +1,13 @@
+.header {
+    width: 100%;
+    height: 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+}
+
+.logo {
+    font-size: xx-large;
+    font-family: 'Montserrat', sans-serif;    font-weight: 200;
+    padding: 0.5rem 1rem;
+    
+}

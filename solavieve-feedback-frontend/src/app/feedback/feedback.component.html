@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Leave a feedback!</h1>
+  <ratings [ratingLabel]="experienceLabel" [name]="experience" (onRatingsChange)="onRatingsChange($event)"></ratings>
+  <ratings [ratingLabel]="paymentProcessSatisfactionLabel" [name]="paymentProcess"
+    (onRatingsChange)="onRatingsChange($event)"></ratings>
+  <ratings [ratingLabel]="customerServiceSatisfactionLabel" [name]="customerService"
+    (onRatingsChange)="onRatingsChange($event)"></ratings>
+  <label class="commentLabel">{{ commentExperienceLabel }}</label>
+  <textarea class="commentbox" rows="5" cols="80" placeholder="Type your comment here"
+    [(ngModel)]="feedback.comment"></textarea>
+  <button class="submit" (click)="onSubmitClick()">SEND FEEDBACK</button>
+</div>
+
+<div id="myModal" class="modal" [hidden]="modalHidden">
+  <div class="modal-content">
+    <img class="modal-image" src="../../assets/success.png">
+    <div class="text-content">
+      <span class="modal-text">Thank you for your message!</span>
+      <span class="modal-text">We will be in contact soon.</span>
+    </div>
+    <button class="submit" (click)="onCloseClick()">CLOSE</button>
+  </div>
+
+</div>
