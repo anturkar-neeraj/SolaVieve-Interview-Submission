@@ -17,12 +17,10 @@ commands.forEach((command) => {
             depth += aim * value
             break;
         case 'up':
-            // depth -= parseInt(value, 10);
             aim -= value;
             break;
         case 'down':
             aim += value;
-            // depth += parseInt(value, 10);
             break;
     }
 });
