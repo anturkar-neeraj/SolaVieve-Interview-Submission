@@ -1,8 +1,9 @@
 export type Feedback = {
-    experience?: number,
-    paymentProcess?: number,
-    customerService?: number,
-    comment?: string
+    userId: string,
+    experienceRating?: number,
+    paymentProcessRating?: number,
+    customerServiceRating?: number,
+    feedbackComment?: string
 }
 
 export type RatingsChange = {

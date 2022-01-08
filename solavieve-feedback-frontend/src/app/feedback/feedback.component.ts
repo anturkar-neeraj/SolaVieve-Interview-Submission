@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../utils/types';
 import { StringConstants } from '../utils/strings';
+import { FeedbackService } from '../feedback.service';
 
 @Component({
   selector: 'feedback',
@@ -17,20 +18,22 @@ export class FeedbackComponent implements OnInit {
   customerService: string = StringConstants.CUSTOMER_SERVICE_RATINGS;
   modalHidden: boolean = true;
   feedback: Feedback;
-  constructor() { }
+  constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit() {
     this.feedback = {
-      experience: 0,
-      paymentProcess: 0,
-      customerService: 0,
-      comment: ''
+      userId: "4653a6f5-fc2f-40df-babb-e77ec30673a3",
+      experienceRating: 0,
+      paymentProcessRating: 0,
+      customerServiceRating: 0,
+      feedbackComment: ''
     }
   }
 
-  onSubmitClick() {
-    this.modalHidden = false;
-    console.log(this.feedback);
+  async onSubmitClick() {
+    const response = await this.feedbackService.postFeedback(this.feedback);
+    if (response['success'])
+      this.modalHidden = false;
   }
 
   onCloseClick() {

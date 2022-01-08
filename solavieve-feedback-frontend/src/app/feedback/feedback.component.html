@@ -7,7 +7,7 @@
     (onRatingsChange)="onRatingsChange($event)"></ratings>
   <label class="commentLabel">{{ commentExperienceLabel }}</label>
   <textarea class="commentbox" rows="5" cols="80" placeholder="Type your comment here"
-    [(ngModel)]="feedback.comment"></textarea>
+    [(ngModel)]="feedback.feedbackComment"></textarea>
   <button class="submit" (click)="onSubmitClick()">SEND FEEDBACK</button>
 </div>
 
