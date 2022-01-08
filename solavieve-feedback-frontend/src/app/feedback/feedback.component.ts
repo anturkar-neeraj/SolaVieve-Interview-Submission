@@ -1,6 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from '../utils/types';
+import { StringConstants } from '../utils/strings';
 
 @Component({
   selector: 'feedback',
@@ -8,13 +8,13 @@ import { Feedback } from '../utils/types';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent implements OnInit {
-  experienceLabel: string = 'Rate your experience from 0 to 5 starts:';
-  paymentProcessSatisfactionLabel: string = 'How satisfied are you with the payment process?';
-  customerServiceSatisfactionLabel: string = 'How satisfied are you with our customer service?';
-  commentExperienceLabel: string = 'Please leave a comment about your experience below: ';
-  experience: string = 'experience';
-  paymentProcess: string = 'paymentProcess';
-  customerService: string = 'customerService';
+  experienceLabel: string = StringConstants.EXPERIENCE_LABEL;
+  paymentProcessSatisfactionLabel: string = StringConstants.PAYMENT_PROCESS_SATISFACTION_LABEL;
+  customerServiceSatisfactionLabel: string = StringConstants.CUSTOMER_SERVICE_SATISFACTION_LABEL;
+  commentExperienceLabel: string = StringConstants.COMMENT_LABEL;
+  experience: string = StringConstants.EXPERIENCE_RATINGS;
+  paymentProcess: string = StringConstants.PAYMENT_PROCESS_RATINGS;
+  customerService: string = StringConstants.CUSTOMER_SERVICE_RATINGS;
   modalHidden: boolean = true;
   feedback: Feedback;
   constructor() { }
@@ -39,7 +39,7 @@ export class FeedbackComponent implements OnInit {
 
   onRatingsChange(e) {
     this.feedback[e.name] = parseInt(e.value, 10);
-    console.log(this.feedback);
+
   }
 
 }

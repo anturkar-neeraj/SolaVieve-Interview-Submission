@@ -5,3 +5,7 @@ export type Feedback = {
     comment?: string
 }
 
+export type RatingsChange = {
+    name: 'experience' | 'paymentProcess' | 'customerService',
+    value: number;
+}
