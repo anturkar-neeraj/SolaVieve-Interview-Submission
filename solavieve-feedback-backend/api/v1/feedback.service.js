@@ -3,11 +3,16 @@ const db = require("../../utils/db");
 
 module.exports.createFeedback = async function (request) {
     try {
-        // console.log(request.body);
-        // console.log(db.credentials);
+        // Ideally userId to be extracted from a bearer token when User Management / Authentication implementation is in place.
+        if (!request.body.hasOwnProperty('userId')) {
+            return {
+                "status": 400,
+                "success": false,
+                "message": "Missing parameter userId"
+            }
+        }
         const client = new Client(db.credentials);
         await client.connect();
-        // await client.query('SET schema "feedbackManagement"');
 
         const insertSql = `
             INSERT INTO "feedbackManagement".feedback (
@@ -28,17 +33,19 @@ module.exports.createFeedback = async function (request) {
             }
         }
     } catch (error) {
-        if (error.detail.indexOf('already exists') > -1) {
+        if (error.detail && error.detail.indexOf('already exists') > -1) {
             return {
                 "status": 200,
                 "success": false,
                 "message": "You have already submitted feedback!"
             }
-        } else {
+        }
+
+        else {
             return {
                 "status": 500,
                 "success": false,
-                "message": error.detail
+                "message": error
             }
         }
     }
